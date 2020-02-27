@@ -1,3 +1,3 @@
-public class Pot{
+public class Pot {
     
 }
