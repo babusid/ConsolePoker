@@ -8,7 +8,7 @@ public class Deck {
         }
     }
     public Card[] getFlop(){
-        Card[] flop = Arrays.copyOfRange(community,0,2);
+        Card[] flop = Arrays.copyOfRange(community,0,3);
         return (flop);
     }
     public Card getTurn(){

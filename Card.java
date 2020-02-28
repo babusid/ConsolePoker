@@ -16,4 +16,8 @@ public class Card{
     public String toString(){
         return Arrays.toString(valsuit);
     }
+
+    public int[] getCardVal(){
+        return valsuit;
+    }
 }
