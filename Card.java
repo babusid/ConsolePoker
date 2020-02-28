@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 public class Card{
     private int suit;
@@ -12,7 +13,7 @@ public class Card{
         valsuit[1]=val;
         valsuit[0]=suit;
     }
-    public int[] getCardval(){
-        return valsuit;
+    public String toString(){
+        return Arrays.toString(valsuit);
     }
 }
