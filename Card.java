@@ -9,8 +9,8 @@ public class Card{
         Random r = new Random();
         val = r.nextInt(13)+2; //2-10:numbers; 11-14:J,Q,K,A
         suit = r.nextInt(4)+1; //1-4; Spade, Heart, Diamond, Club
-        valsuit[0]=val;
-        valsuit[1]=suit;
+        valsuit[1]=val;
+        valsuit[0]=suit;
     }
     public int[] getCardval(){
         return valsuit;
