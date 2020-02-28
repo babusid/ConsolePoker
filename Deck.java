@@ -1,20 +1,20 @@
 import java.util.Arrays;
 public class Deck {
-    private int[][] community = new int[5][2];
+    private Card[] community = new Card[5];
     public Deck(){
         for (int x = 0; x<community.length; x++) {
             Card genCard = new Card();
-            community[x] = genCard.getCardval();
+            community[x] = genCard;
         }
     }
-    public int[][] getFlop(){
-        int[][] flop = Arrays.copyOfRange(community,0,2);
+    public Card[] getFlop(){
+        Card[] flop = Arrays.copyOfRange(community,0,2);
         return (flop);
     }
-    public int[] getTurn(){
+    public Card getTurn(){
         return community[3];
     }
-    public int[] getRiver(){
+    public Card getRiver(){
         return community[4];
     }
 
