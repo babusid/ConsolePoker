@@ -9,11 +9,5 @@ public class MainGame {
         System.out.println("River: "+test.getRiver());
         System.out.println("Used Cards");
         test.getRiver().printUsedCards();
-       //cranch test
-        //ew
-        //tester2
-        //tester2
-        //tester2
-
     }
 }
