@@ -10,11 +10,7 @@ public class Card{
         valsuit[1]=r.nextInt(4)+1;//1-4; Spade, Heart, Diamond, Club
 
         //make UsedCards loop back over itself or else duplicates till sometimes randomly happen 
-        if(UsedCards.contains(this)){ //checks whether UsedCards contains another card that equals this one
-            valsuit[0]=r.nextInt(13)+2;//2-10:numbers; 11-14:J,Q,K,A
-            valsuit[1]=r.nextInt(4)+1;//1-4; Spade, Heart, Diamond, Club
-        }
-        UsedCards.add(this);
+        UsedCardsCheck(this);
     }
     public String toString(){ //prints string of how card would be said verbally
         String [] returner = new String[1];
@@ -57,6 +53,20 @@ public class Card{
 
     }
 
+    public void UsedCardsCheck(Card check){ //recursive method check to make sure no card repeats itself
+        Random r = new Random();
+        if(UsedCards.contains(check)){ //checks whether UsedCards contains another card that equals this one
+            int[] newSet = {(r.nextInt(13)+2),(r.nextInt(4)+1)};
+            check.setValsuit(newSet);
+            UsedCardsCheck(check);
+        }
+        else {
+            UsedCards.add(this);
+        }
+    }
+    public void setValsuit(int[] newValSuit){
+        valsuit = newValSuit;
+    }
     public int[] getValSuit(){
         return valsuit;
     }

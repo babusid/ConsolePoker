@@ -3,6 +3,8 @@ import java.util.Arrays;
 public class MainGame {
     public static void main(String[] args){
         Deck test = new Deck();
+        Card newCard = new Card();
+        System.out.println("Testing Card: "+newCard);
         System.out.println(test);
         System.out.println("Flop: "+Arrays.toString(test.getFlop()));
         System.out.println("Turn: "+test.getTurn());
