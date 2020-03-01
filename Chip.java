@@ -6,9 +6,13 @@ public class Chip {
         value = 500;
     }
 
+    public Chip(int value){
+        this.value = value;
+    }
+
     //Mutator Method
-	public void setValue(int a){
-		a = value;
+	public void setValue(int value){
+		this.value = value;
     }
     
     //Accessor Method
