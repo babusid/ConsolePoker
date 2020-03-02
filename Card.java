@@ -2,16 +2,56 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 public class Card{
-    private int[] valsuit = new int[2];
-    private final static ArrayList<Card> UsedCards = new ArrayList<Card>(); 
+    private int[] valsuit = new int[2]; // holds value and suit
+    private final static ArrayList<int[]> UsedCards = new ArrayList<int[]>();  //holds all used cards globally
+    Random r = new Random();
     public Card (){
-        Random r = new Random();
         valsuit[0]=r.nextInt(13)+2;//2-10:numbers; 11-14:J,Q,K,A
         valsuit[1]=r.nextInt(4)+1;//1-4; Spade, Heart, Diamond, Club
-
-        //make UsedCards loop back over itself or else duplicates till sometimes randomly happen 
         UsedCardsCheck(this);
     }
+
+    public void UsedCardsCheck(Card check){ //make sure no card repeats itself
+        for(int x = 0;x<UsedCards.size();x++){
+            if(Arrays.equals(UsedCards.get(x),this.getValSuit())){
+                int[] newValSuit = {r.nextInt(13)+2,r.nextInt(4)+1};
+                check.setValsuit(newValSuit);
+                x=0;
+            }
+        }
+        UsedCards.add(check.getValSuit());
+    }
+   
+    public void setValsuit(int[] newValSuit){
+        this.setSuit(newValSuit[1]);
+        this.setVal(newValSuit[0]);
+    }
+    public int[] getValSuit(){
+        return valsuit;
+    }
+
+    public int getSuit(){
+        return valsuit[1];
+    }
+
+    public void setSuit(int newSuit){
+        valsuit[1] = newSuit;
+    }
+
+    public int getVal(){ 
+        return valsuit[0];
+    }
+
+    public void setVal(int newVal){
+        valsuit[0] = newVal;
+    }
+
+    public void printUsedCards(){ //testing purposes only; remove later
+        for(int[] var:UsedCards){
+            System.out.println(Arrays.toString(var));
+        };
+    }
+
     public String toString(){ //prints string of how card would be said verbally
         String [] returner = new String[1];
         String printval="";
@@ -53,45 +93,4 @@ public class Card{
 
     }
 
-    public void UsedCardsCheck(Card check){ //recursive method check to make sure no card repeats itself
-        Random r = new Random();
-        if(UsedCards.contains(check)){ //checks whether UsedCards contains another card that equals this one
-            int[] newSet = {(r.nextInt(13)+2),(r.nextInt(4)+1)};
-            check.setValsuit(newSet);
-            UsedCardsCheck(check);
-        }
-        else {
-            UsedCards.add(this);
-        }
-    }
-    public void setValsuit(int[] newValSuit){
-        valsuit = newValSuit;
-    }
-    public int[] getValSuit(){
-        return valsuit;
-    }
-
-    public int getSuit(){
-        return valsuit[1];
-    }
-
-    public int getVal(){ // maybe change to object return so that you can return characters and integers
-        return valsuit[0];
-    }
-
-    // method to compare whether two cards are equal
-    //used for UsedCards to check against itself
-    public boolean equals(Card check){ 
-        if (check.getValSuit()==this.getValSuit()){
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public void printUsedCards(){ //testing purposes only; remove later
-        for(Card var:UsedCards){
-            System.out.println(var.toString());
-        };
-    }
 }
