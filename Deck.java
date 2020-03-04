@@ -19,7 +19,7 @@ public class Deck {
     }
 
     public Card getCard(int x){//debug purposes only
-        return community[x];
+        return community[x-1];
     }
 
     public String toString(){

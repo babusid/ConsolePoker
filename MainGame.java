@@ -10,7 +10,7 @@ public class MainGame {
         // System.out.println("Used Cards");
         // test.getRiver().printUsedCards();
         System.out.println("All Used Cards");
-        test.getCard(50).printUsedCards();
+        test.getCard(52).printUsedCards();
 
     }
 }
