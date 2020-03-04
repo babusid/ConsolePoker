@@ -4,7 +4,8 @@ import java.util.Collections;
 import java.util.Random;
 public class Card{
     private int[] valsuit = new int[2]; // holds value and suit
-    private static ArrayList<int[]> UsedCards = new ArrayList<int[]>();  //holds all used cards globally
+    private static int[] duplicatedebug = {10,10}; //unreachable card permutation; use to buffer UsedCards by one
+    private static ArrayList<int[]> UsedCards = new ArrayList<int[]>(Arrays.asList(duplicatedebug));  //holds all used cards globally
     Random r = new Random();
 
     public Card (){
@@ -16,8 +17,8 @@ public class Card{
     public void UsedCardsCheck(Card check){ //make sure no card repeats itself
         //need to make more efficient
         for(int x = 0;x<UsedCards.size();x++){
-            int[] checkArr = UsedCards.get(x);
-            if(checkArr[0]==check.getVal()&&checkArr[1]==check.getSuit()){
+            int[] UsedArr = UsedCards.get(x);
+            if(UsedArr[0]==check.getVal()&&UsedArr[1]==check.getSuit()){
                 int[] newValSuit = {r.nextInt(13)+2,r.nextInt(4)+1};
                 check.setValsuit(newValSuit);
                 x=0;
@@ -57,9 +58,6 @@ public class Card{
         };
     }
 
-    public void sortPrintUsedCards(){ //debug purposes only; prints sorted list of used cards; helps find duplicates
-        
-    }
 
     public String toString(){ //prints string of how card would be said verbally ("Jack of Clubs")
         String [] returner = new String[1];

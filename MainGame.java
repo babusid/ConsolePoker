@@ -11,7 +11,6 @@ public class MainGame {
         // test.getRiver().printUsedCards();
         System.out.println("All Used Cards");
         test.getCard(50).printUsedCards();
-        System.out.println("\n");
-        System.out.println("");
+
     }
 }
