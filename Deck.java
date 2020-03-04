@@ -1,12 +1,22 @@
 import java.util.Arrays;
 public class Deck {
-    private Card[] community = new Card[52];
+    private Card[] community;
     public Deck(){
+        community = new Card[5];
         for (int x = 0; x<community.length; x++) {
             Card genCard = new Card();
             community[x] = genCard;
         }
     }
+
+    public Deck(int size){
+        community = new Card[size];
+        for (int x = 0; x<community.length; x++) {
+            Card genCard = new Card();
+            community[x] = genCard;
+        }
+    }
+
     public Card[] getFlop(){
         Card[] flop = Arrays.copyOfRange(community,0,3);
         return (flop);
