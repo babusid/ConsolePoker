@@ -1,6 +1,6 @@
 import java.util.Arrays;
 public class Deck {
-    private Card[] community = new Card[5];
+    private Card[] community = new Card[52];
     public Deck(){
         for (int x = 0; x<community.length; x++) {
             Card genCard = new Card();
@@ -18,7 +18,12 @@ public class Deck {
         return community[4];
     }
 
-    public String toString(){ //testing purposes, prints out all five cards in raw numeric form; check Card class to see numeric to card conversion
+    public Card getCard(int x){//debug purposes only
+        return community[x];
+    }
+
+    public String toString(){
         return Arrays.deepToString(community);
     }
+
 }
