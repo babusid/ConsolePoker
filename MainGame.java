@@ -8,7 +8,7 @@ public class MainGame {
         System.out.println("Turn: "+test.getTurn());
         System.out.println("River: "+test.getRiver()+"\n");
         System.out.println("All Used Cards");
-        test.getCard(51).printUsedCards();
-
+        //test.getCard(51).printUsedCards();
+        test.getCard(48).printUsedCards();
     }
 }
