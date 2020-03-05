@@ -10,5 +10,8 @@ public class MainGame {
         System.out.println("All Used Cards");
         //test.getCard(51).printUsedCards();
         test.getCard(48).printUsedCards();
+        test.getCard(52).printUsedCards();
+        test.getCard(51).printUsedCards();
+
     }
 }
