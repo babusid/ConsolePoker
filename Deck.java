@@ -28,7 +28,7 @@ public class Deck {
         return community[4];
     }
 
-    public Card getCard(int x){//debug purposes only
+    public Card getCard(int x){
         return community[x-1];
     }
 
